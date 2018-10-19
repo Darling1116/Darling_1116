@@ -1,0 +1,14 @@
+﻿生成启动时间为 2018/10/19 21:40:16。
+     1>项目“C:\Users\happy~小小蕊\Documents\Visual Studio 2013\Projects\test.c 10___19\test.c 10___19\test.c 10___19.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt test.c
+         test.c
+     1>c:\users\happy~小小蕊\documents\visual studio 2013\projects\test.c 10___19\test.c 10___19\test.c(14): warning C4047: “初始化”:“char”与“char [8]”的间接级别不同
+     1>c:\users\happy~小小蕊\documents\visual studio 2013\projects\test.c 10___19\test.c 10___19\test.c(15): error C2100: 非法的间接寻址
+     1>c:\users\happy~小小蕊\documents\visual studio 2013\projects\test.c 10___19\test.c 10___19\test.c(15): warning C4047: “函数”:“char *”与“char”的间接级别不同
+     1>c:\users\happy~小小蕊\documents\visual studio 2013\projects\test.c 10___19\test.c 10___19\test.c(15): warning C4024: “strlen”: 形参和实参 1 的类型不同
+     1>已完成生成项目“C:\Users\happy~小小蕊\Documents\Visual Studio 2013\Projects\test.c 10___19\test.c 10___19\test.c 10___19.vcxproj”(Build 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:00.68
