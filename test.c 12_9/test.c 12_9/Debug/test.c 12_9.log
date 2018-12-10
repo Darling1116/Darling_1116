@@ -1,0 +1,27 @@
+﻿生成启动时间为 2018/12/10 20:29:19。
+     1>项目“C:\Users\happy~小小蕊\documents\visual studio 2013\Projects\test.c 12_9\test.c 12_9\test.c 12_9.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt Heap.c test.c
+         test.c
+     1>c:\users\happy~小小蕊\documents\visual studio 2013\projects\test.c 12_9\test.c 12_9\test.c(6): warning C4013: “test”未定义；假设外部返回 int
+         Heap.c
+     1>c:\users\happy~小小蕊\documents\visual studio 2013\projects\test.c 12_9\test.c 12_9\heap.c(19): warning C4018: “<”: 有符号/无符号不匹配
+     1>c:\users\happy~小小蕊\documents\visual studio 2013\projects\test.c 12_9\test.c 12_9\heap.c(21): warning C4018: “<”: 有符号/无符号不匹配
+     1>c:\users\happy~小小蕊\documents\visual studio 2013\projects\test.c 12_9\test.c 12_9\heap.c(27): warning C4047: “初始化”:“HPDataType *”与“HPDataType”的间接级别不同
+     1>c:\users\happy~小小蕊\documents\visual studio 2013\projects\test.c 12_9\test.c 12_9\heap.c(29): warning C4047: “=”:“HPDataType”与“HPDataType *”的间接级别不同
+     1>c:\users\happy~小小蕊\documents\visual studio 2013\projects\test.c 12_9\test.c 12_9\heap.c(50): warning C4047: “初始化”:“HPDataType *”与“HPDataType”的间接级别不同
+     1>c:\users\happy~小小蕊\documents\visual studio 2013\projects\test.c 12_9\test.c 12_9\heap.c(52): warning C4047: “=”:“HPDataType”与“HPDataType *”的间接级别不同
+     1>c:\users\happy~小小蕊\documents\visual studio 2013\projects\test.c 12_9\test.c 12_9\heap.c(69): warning C4552: “/”: 运算符不起任何作用；应输入带副作用的运算符
+     1>c:\users\happy~小小蕊\documents\visual studio 2013\projects\test.c 12_9\test.c 12_9\heap.c(91): warning C4047: “初始化”:“HPDataType *”与“HPDataType”的间接级别不同
+     1>c:\users\happy~小小蕊\documents\visual studio 2013\projects\test.c 12_9\test.c 12_9\heap.c(93): warning C4047: “=”:“HPDataType”与“HPDataType *”的间接级别不同
+     1>c:\users\happy~小小蕊\documents\visual studio 2013\projects\test.c 12_9\test.c 12_9\heap.c(114): warning C4018: “<”: 有符号/无符号不匹配
+         正在生成代码...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\happy~小小蕊\documents\visual studio 2013\Projects\test.c 12_9\Debug\test.c 12_9.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\happy~小小蕊\documents\visual studio 2013\Projects\test.c 12_9\Debug\test.c 12_9.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\happy~小小蕊\documents\visual studio 2013\Projects\test.c 12_9\Debug\test.c 12_9.lib" /MACHINE:X86 Debug\Heap.obj
+         Debug\test.obj
+         test.c 12_9.vcxproj -> C:\Users\happy~小小蕊\documents\visual studio 2013\Projects\test.c 12_9\Debug\test.c 12_9.exe
+     1>已完成生成项目“C:\Users\happy~小小蕊\documents\visual studio 2013\Projects\test.c 12_9\test.c 12_9\test.c 12_9.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:00.91
