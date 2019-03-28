@@ -1,0 +1,33 @@
+﻿生成启动时间为 2019/3/28 15:12:01。
+     1>项目“C:\Users\happy~小小蕊\documents\visual studio 2013\Projects\priority_queue.cpp 3_26\priority_queue.cpp 3_26\priority_queue.cpp 3_26.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt test.cpp
+         test.cpp
+     1>c:\users\happy~小小蕊\documents\visual studio 2013\projects\priority_queue.cpp 3_26\priority_queue.cpp 3_26\test.cpp(167): warning C4018: “<”: 有符号/无符号不匹配
+                 c:\users\happy~小小蕊\documents\visual studio 2013\projects\priority_queue.cpp 3_26\priority_queue.cpp 3_26\test.cpp(164): 编译类 模板 成员函数“void Priority_queue<int,std::vector<T,std::allocator<_Ty>>>::Adjustdown(int)”时
+                 with
+                 [
+                     T=int
+         ,            _Ty=int
+                 ]
+                 c:\users\happy~小小蕊\documents\visual studio 2013\projects\priority_queue.cpp 3_26\priority_queue.cpp 3_26\test.cpp(160): 参见对正在编译的函数 模板 实例化“void Priority_queue<int,std::vector<T,std::allocator<_Ty>>>::Adjustdown(int)”的引用
+                 with
+                 [
+                     T=int
+         ,            _Ty=int
+                 ]
+                 c:\users\happy~小小蕊\documents\visual studio 2013\projects\priority_queue.cpp 3_26\priority_queue.cpp 3_26\test.cpp(206): 参见对正在编译的类 模板 实例化“Priority_queue<int,std::vector<T,std::allocator<_Ty>>>”的引用
+                 with
+                 [
+                     T=int
+         ,            _Ty=int
+                 ]
+     1>c:\users\happy~小小蕊\documents\visual studio 2013\projects\priority_queue.cpp 3_26\priority_queue.cpp 3_26\test.cpp(169): warning C4018: “<”: 有符号/无符号不匹配
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\happy~小小蕊\documents\visual studio 2013\Projects\priority_queue.cpp 3_26\Debug\priority_queue.cpp 3_26.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\happy~小小蕊\documents\visual studio 2013\Projects\priority_queue.cpp 3_26\Debug\priority_queue.cpp 3_26.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\happy~小小蕊\documents\visual studio 2013\Projects\priority_queue.cpp 3_26\Debug\priority_queue.cpp 3_26.lib" /MACHINE:X86 Debug\test.obj
+         priority_queue.cpp 3_26.vcxproj -> C:\Users\happy~小小蕊\documents\visual studio 2013\Projects\priority_queue.cpp 3_26\Debug\priority_queue.cpp 3_26.exe
+     1>已完成生成项目“C:\Users\happy~小小蕊\documents\visual studio 2013\Projects\priority_queue.cpp 3_26\priority_queue.cpp 3_26\priority_queue.cpp 3_26.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:03.08
