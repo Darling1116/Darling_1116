@@ -1,0 +1,19 @@
+﻿生成启动时间为 2020/3/15 16:00:33。
+     1>项目“C:\Users\happy~小小蕊\Documents\Visual Studio 2013\Projects\List.c 3_15\List.c 3_15\List.c 3_15.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt List.c
+         List.c
+     1>c:\users\happy~小小蕊\documents\visual studio 2013\projects\list.c 3_15\list.c 3_15\list.c(106): warning C4047: “return”:“ListNode *”与“int”的间接级别不同
+     1>c:\users\happy~小小蕊\documents\visual studio 2013\projects\list.c 3_15\list.c 3_15\list.c(116): warning C4047: “return”:“ListNode *”与“int”的间接级别不同
+     1>c:\users\happy~小小蕊\documents\visual studio 2013\projects\list.c 3_15\list.c 3_15\list.c(122): warning C4047: “==”:“ListNode *”与“int”的间接级别不同
+     1>c:\users\happy~小小蕊\documents\visual studio 2013\projects\list.c 3_15\list.c 3_15\list.c(123): warning C4098: “ListInsert”:“void”函数返回值
+     1>c:\users\happy~小小蕊\documents\visual studio 2013\projects\list.c 3_15\list.c 3_15\list.c(137): warning C4047: “==”:“ListNode *”与“int”的间接级别不同
+     1>c:\users\happy~小小蕊\documents\visual studio 2013\projects\list.c 3_15\list.c 3_15\list.c(138): warning C4098: “ListErase”:“void”函数返回值
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\happy~小小蕊\Documents\Visual Studio 2013\Projects\List.c 3_15\Debug\List.c 3_15.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\happy~小小蕊\Documents\Visual Studio 2013\Projects\List.c 3_15\Debug\List.c 3_15.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\happy~小小蕊\Documents\Visual Studio 2013\Projects\List.c 3_15\Debug\List.c 3_15.lib" /MACHINE:X86 Debug\List.obj
+         List.c 3_15.vcxproj -> C:\Users\happy~小小蕊\Documents\Visual Studio 2013\Projects\List.c 3_15\Debug\List.c 3_15.exe
+     1>已完成生成项目“C:\Users\happy~小小蕊\Documents\Visual Studio 2013\Projects\List.c 3_15\List.c 3_15\List.c 3_15.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:00.61
