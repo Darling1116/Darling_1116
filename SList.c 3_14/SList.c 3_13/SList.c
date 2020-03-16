@@ -180,6 +180,58 @@ void SListRemove(SList* plist, SLDataType x){
 	}
 }
 
+//删除链表中值为val的所有元素
+SListNode*  removeElements(SList* plist, int val) {
+//利用三个指针结点，遍历链表（对于满足条件的值<是否为头？>；对于不满足条件的值）
+	/*SListNode* prev = NULL;
+	SListNode* cur = plist->_head;
+	SListNode* tail = NULL;
+	while (cur != NULL){
+		if (cur->_data == val){
+			tail = cur->_next;
+			free(cur);
+			cur = tail;
+			if (prev == NULL){
+				plist->_head = tail;
+			}
+			else{
+				prev->_next = tail;
+			}
+		}
+		else{
+			prev = cur;
+			cur = cur->_next;
+		}
+	}
+	return plist->_head;
+	*/
+
+	SListNode* head = plist->_head;
+	if (head == NULL){
+		return NULL;
+	}
+	while (head->_data==val && head!=NULL)
+	{
+		SListNode* tnode = head;
+		head = head->_next;
+		free(tnode);
+	}
+	SListNode* cur = head->_next;
+	SListNode* prev = head;
+	while (cur != NULL){
+		if (cur->_data == val){
+			SListNode* tail = cur->_next;
+			free(cur);
+			prev->_next = tail;
+			cur = tail;
+		}
+		else{
+			prev = cur;
+			cur = cur->_next;
+		}
+	}
+	return plist->_head;
+}
 
 
 void SListPrint(SList* plist){
@@ -198,12 +250,16 @@ void main(){
 	SListPushFront(&psl, 1);
 	SListPushFront(&psl, 2);
 	SListPushFront(&psl, 3);
-	SListPushFront(&psl, 4);
+	SListPushFront(&psl, 2);
 	SListPushFront(&psl, 5);
 	SListPushFront(&psl, 6);
 	SListPopFront(&psl);
-	//BuySListNode(&psl, 1);
 
+	SList* s = removeElements(&psl, 2);
+	SListPrint(&s);
+
+	//BuySListNode(&psl, 1);
+	/*
 	SListPushBack(&psl, 6);
 	SListPopBack(&psl);
 
@@ -212,7 +268,7 @@ void main(){
 	SListEraseAfter(&psl, pos);
     
 	SListRemove(&psl, 1);
-
+	*/
 
 	SListPrint(&psl);
 	system("pause");
