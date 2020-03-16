@@ -155,7 +155,6 @@ void ListRemove(List* plist, LTDataType x){
 				bNode->_next = eNode;
 				eNode->_prev = bNode;
 				return;
-
 			}
 			else{
 				tNode = tNode->_next;
