@@ -150,15 +150,13 @@ SListNode* deleteDuplicate(SList* plist){
 //给定一个排序列表，删除链表里重复的结点
 SListNode* deleteDuplicates(SList* plist){
 	assert(plist);
+	SListNode* prev = NULL;
+	SListNode* cur = plist->_head;
+	SListNode* tail = plist->_head->_next;
 	if (plist->_head == NULL || plist->_head->_next == NULL)
 	{
 		return plist->_head;
 	}
-	SListNode* cur = plist->_head;
-	SListNode* tail = plist->_head->_next;
-	SListNode* s1 = BuySListNode(0);
-	SListNode* s = s1;
-
 	while (tail){
 		if (cur->_data == tail->_data){
 			tail = tail->_next;
@@ -170,25 +168,29 @@ SListNode* deleteDuplicates(SList* plist){
 					tail = tail->_next;
 				}
 			}
-			/*
-		while (cur->_data != tail->_data){
-			SListNode* tnode = cur;
-			cur = cur->_next;
-			free(tnode);
+			while (cur != tail){
+				SListNode* tnode = cur;
+				cur = cur->_next;
+				free(tnode);
+
+			}
+			if (prev == NULL){
+				plist->_head = tail;
+			}
+			else{
+				prev->_next = tail;
+			}
+			if (tail){
+				tail = tail->_next;
+			}
 		}
-		*/
-		s->_next = tail;
-		cur = tail;
-		if (tail){
-			tail = tail->_next;
-		}
-	}
 		else{
+			prev = cur;
 			cur = tail;
 			tail = tail->_next;
 		}
 	}
-	return s1->_next;
+	return plist->_head;
 }
 
 
@@ -225,11 +227,11 @@ void main(){
 	//SListDestory(&psl);
 
 	SListPushFront(&psl, 5);
-	SListPushFront(&psl, 3);
 	SListPushFront(&psl, 4);
-	SListPushFront(&psl, 1);
-	SListPushFront(&psl, 1);
-	SListPushFront(&psl, 1);
+	SListPushFront(&psl, 4);
+	SListPushFront(&psl, 3);
+	SListPushFront(&psl, 3);
+	SListPushFront(&psl, 2);
 	/*
 	SListPushFront(&psl2, 4);
 	SListPushFront(&psl2, 2);
