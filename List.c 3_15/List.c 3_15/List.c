@@ -35,7 +35,8 @@ void ListDestory(List* plist){
 		free(cur);
 		cur = tNode;
 	}
-	free(plist->_head);
+	free(eNode);
+	eNode = NULL;
 	plist->_head = NULL;
 }
 
@@ -177,8 +178,8 @@ int main(){
 
 	List psl;
 	ListInit(&psl);
-	//ListDestory(&psl);
-
+	ListDestory(&psl);
+	/*
 	ListPushBack(&psl, 1);
 	ListPushBack(&psl, 2);
 	ListPushBack(&psl, 3);
@@ -195,9 +196,10 @@ int main(){
 	ListInsert(&psl, pos, 666);
 	ListErase(&psl, pos);
 
-	ListRemove(&psl, 666);
+	//ListRemove(&psl, 666);
 
 	ListPrint(&psl);
+	*/
 	system("pause");
 	return 0;
 }
