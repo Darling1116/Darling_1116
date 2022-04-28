@@ -40,9 +40,14 @@ public:
 	int operator-(const Date& d);
 
 
+	//拷贝构造
+	Date(const Date& d);
 
 
-	~Date();
+	//赋值运算符重载
+	Date& operator=(const Date& d);
+
+	~Date();  //析构函数
 
 private:
 	int _year;

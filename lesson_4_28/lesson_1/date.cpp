@@ -197,6 +197,23 @@ int Date::operator-(const Date& d){
 }
 
 
+//拷贝构造
+Date::Date(const Date& d){
+	this->_year = d._year;
+	this->_month = d._month;
+	this->_day = d._day;
+}
+
+
+//赋值运算符重载
+Date& Date::operator=(const Date& d){
+	this->_year = d._year;
+	this->_month = d._month;
+	this->_day = d._day;
+	return *this;
+}
+
+
 int Date::getMonthDay(int year, int month){
 	//存储每个月的天数：数组下标就是对应的月份
 	static int array[13] = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };  
