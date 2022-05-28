@@ -120,7 +120,7 @@ namespace GXR{
 		}
 
 		iterator end(){
-
+			return iterator(_head);
 
 		}
 
