@@ -80,6 +80,7 @@ namespace GXR{
 			HashData<K, V>* ret = find(key);
 			if (ret){
 				ret->_status = DELETE;
+				_n--;
 				return true;
 			}
 			else
