@@ -33,7 +33,8 @@ namespace GXR{
 			if (_n == _table.size()){
 				//新建一个table表，里面存放结点的指针
 				vector<node*> newtable;
-				newtable.resize(_table.size() == 0 ? 8 : _table.size() * 2,nullptr);
+				//newtable.resize(_table.size() == 0 ? 8 : _table.size() * 2,nullptr);
+				newtable.resize(_table.size() == 0 ? 8 : GetNextPrime(_table.size()));
 				//依次遍历哈希表，把各个桶中的元素重新计算映射位置
 				for (int i = 0; i < _table.size(); i++){
 					if (_table[i] != nullptr){
@@ -113,6 +114,28 @@ namespace GXR{
 		vector<HashNode<K, V>*> _table;
 		size_t _n; //哈希表中的有效数据个数
 	};
+
+
+	const int PRIMECOUNT = 28;
+	const size_t primeList[PRIMECOUNT] = {
+		53ul, 97ul, 193ul, 389ul, 769ul,
+		1543ul, 3079ul, 6151ul, 12289ul, 24593ul,
+		49157ul, 98317ul, 196613ul, 393241ul, 786433ul,
+		1572869ul, 3145739ul, 6291469ul, 12582917ul, 25165843ul,
+		50331653ul, 100663319ul, 201326611ul, 402653189ul, 805306457ul,
+		1610612741ul, 3221225473ul, 4294967291ul
+	};
+
+	size_t GetNextPrime(size_t prime) {
+		size_t i = 0;
+		for (; i < PRIMECOUNT; ++i)
+		{
+			if (primeList[i] > primeList[i])
+				return primeList[i];
+		}
+
+		return primeList[i];
+	}
 
 	struct intHashFunc{
 		int operator()(int i){
