@@ -23,5 +23,11 @@
     <ClInclude Include="HashTable.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="unordermap.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="unorderset.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
