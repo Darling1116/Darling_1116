@@ -50,7 +50,7 @@ namespace GXR{
 		}
 
 		bool operator==(const self& s){
-			return _node == s._node;
+			return _node == s._node && _pht == s._pht;
 		}
 
 		self& operator++(){
@@ -61,8 +61,9 @@ namespace GXR{
 			}
 			//如果当前桶里没有数据了，计算散列地址，去找下一个有数据的桶
 			else{
+				HashFunc hf;
 				KeyOfT kot;
-				size_t index = kot(_node->_data) % _pht->_table.size();
+				size_t index = hf(kot(_node->_data)) % _pht->_table.size();
 				++index;
 				while (index < _pht->_table.size()){
 					if (_pht->_table[index]){
@@ -79,9 +80,6 @@ namespace GXR{
 
 		}
 
-			
-
-
 		};
 
 
@@ -93,13 +91,39 @@ namespace GXR{
 			//把迭代器定义为HT的友元，使其能访问它的私有成员(加一下模板参数)
 			typedef HashNode<T> node;
 			typedef HTIterator<K, T, KeyOfT, HashFunc> iterator;
+			typedef HashTable<K, T, KeyOfT, HashFunc> hashtable;
 
-			bool insert(const T& data){
+			HashTable() = default;  //显示指定生成默认的构造函数
+
+			HashTable(const hashtable& ht){
+				_n = ht._n;
+				_table.resize(ht._table.size());
+				for (size_t i = 0; i < ht._table.size(); i++){
+					node* cur = ht._table[i];
+					while (cur){
+						node* newnode = new node(cur->_data);
+						newnode->_next = _table[i];
+						_table[i] = newnode;
+						cur = cur->_next;
+					}
+				}
+			}
+
+			hashtable& operator=(hashtable ht){
+				swap(_table, ht._table);
+				swap(_n, ht._n);
+				return *this;
+			}
+
+
+			//bool insert(const T& data){
+			pair<iterator, bool> insert(const T& data){
 				KeyOfT kot;
 				//先判断是否表中已有该元素，若已存在，就不用插入
-				node* ret = find(kot(data));
-				if (ret != nullptr){
-					return false;
+				//node* ret = find(kot(data));
+				iterator ret =  find(kot(data));
+				if (ret != end()){
+					return make_pair(ret, false);
 				}
 				HashFunc hf;
 				//当负载因子等于1时，进行增容处理
@@ -133,12 +157,13 @@ namespace GXR{
 				newnode->_next = _table[index];
 				_table[index] = newnode;
 				_n++;
-				return true;
+				return make_pair(iterator(newnode, this), true);
 			}
 
-			node* find(const K& key){
+			//node* find(const K& key){
+			iterator find(const K& key){
 				if (_table.size() == 0)
-					return nullptr;
+					return end();
 				HashFunc hf;
 				KeyOfT kot;
 				size_t index = hf(key) % _table.size();
@@ -146,10 +171,10 @@ namespace GXR{
 
 				while (cur != nullptr){
 					if (kot(cur->_data) == key)
-						return cur;
+						return iterator(cur, this);
 					cur = cur->_next;
 				}
-				return nullptr;
+				return end();
 			}
 
 			bool erase(const K& key){
@@ -197,6 +222,19 @@ namespace GXR{
 				return iterator(nullptr, this);
 			}
 
+
+			~HashTable(){
+				for (size_t i = 0; i < _table.size(); i++){
+					node* cur = _table[i];
+					while (cur != nullptr){
+						node* tailnode = cur->_next;
+						delete cur;
+						cur = tailnode;
+					}
+					_table[i] = nullptr;
+				}
+			}
+
 		private:
 			vector<HashNode<T>*> _table;
 			size_t _n; //哈希表中的有效数据个数
@@ -231,9 +269,9 @@ namespace GXR{
 		};
 
 		struct stringHashFunc{
-			size_t operator()(const string& s){
+			size_t operator()(string s){
 				size_t count = 0;
-				for (auto &e : s){
+				for (auto& e : s){
 					count += e;
 				}
 				return count;
