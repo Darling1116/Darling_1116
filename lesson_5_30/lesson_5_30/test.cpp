@@ -51,9 +51,16 @@ void test_unordered_map(){
 	cout << endl;
 }
 
+void test(){
+	unordered_set<int> set;
+	cout << "负载因子最大为： " << set.max_load_factor() << " ";
+}
+
+
 int main(){
-	test_unordered_set();
-	test_unordered_map();
+	/*test_unordered_set();
+	test_unordered_map();*/
+	test();
 
 	system("pause");
 	return 0;
