@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <array>
+#include <functional>
 
 using namespace std;
 
@@ -52,28 +53,69 @@ void test_3(){
 	cout << a1.at(4) << endl;
 }
 
-//左值、右值
+
+void Fun(int &x){ cout << "lvalue ref" << endl; }
+void Fun(int &&x){ cout << "rvalue ref" << endl; }
+void Fun(const int &x){ cout << "const lvalue ref" << endl; }
+void Fun(const int &&x){ cout << "const rvalue ref" << endl; }
+
+template<typename T>
+void PerfectForward(T &&t){ 
+	Fun(std::forward<T>(t)); 
+}
+
+//左值、右值、完美转发
 void test_4(){
-	int a = 5;
-	cout << &a << endl;
+	int a = 12;
+	PerfectForward(a);
+	PerfectForward(1);
+	const int b = 22;
+	PerfectForward(b);
+	PerfectForward(std::move(b));
 
+	//int a = 5;
+	//cout << &a << endl;
 
-	10;
-	//cout << &10 << endl;
-	int&& a1 = 10;
-	cout << a1 << endl;
+	//10;
+	////cout << &10 << endl;
+	//int&& a1 = 10;
+	//cout << a1 << endl;
 
-	//const左值引用可以引用右值
-	const int& a2 = 10;
-	cout << a2 << endl;
+	////const左值引用可以引用右值
+	//const int& a2 = 10;
+	//cout << a2 << endl;
 
-	//右值引用可以引用move后的左值
-	int&& a3 = move(a);
-	cout << a3 << endl;
+	////右值引用可以引用move后的左值
+	//int&& a3 = move(a);
+	//cout << a3 << endl;
+
+}
+
+//递归获取可变参数模板中的各个参数
+template <class T, class... Args>
+//void showlist(T value, Args... args){
+//	cout << value << " ";
+//	showlist(args...);
+//}
+void showlist(T value, Args&&... args){  //增加万能引用
+	cout << value << " ";
+	showlist(args...);
+}
+
+//终止条件
+template <class T>
+void showlist(T& value){
+	cout << value << endl;
+}
+//可变参数
+void test_5(){
+	int i = 100;
+	showlist(1, 2, 3, i);
+	showlist("haha", 1.2);
 }
 
 //lambda表达式
-void test_5(){
+void test_6(){
 	struct Goods{
 		string _name;
 		double _price;
@@ -90,4 +132,57 @@ void test_5(){
 	//使用lambda表达式
 	sort(gds, gds + sizeof(gds) / sizeof(gds[0]), 
 		[](const Goods& gl, const Goods& gr)->bool{return gl._price <= gr._price;});
+
+	int a = 10; 
+	int b = 20;
+	auto swap1 = [](int& a, int& b){int tmp = a; a = b; b = tmp; };
+	swap1(a, b);
+	cout << a << " " <<  b << endl;
+}
+
+
+//包装器
+template <class F, class T>
+T useF(F f, T x){
+	static int count = 0;
+	cout << "count:" << ++count << endl;
+	cout << "count:" << &count << endl;
+	return f(x);
+}
+
+double func(double i){
+	return i / 2;
+}
+
+struct Functor{
+	double operator()(double d){
+		return d / 3;
+	}
+};
+
+class Plus{
+public:
+	double plus(double x, double y){
+		return x + y;
+	}
+};
+
+void test_7(){
+	/*cout << useF(func, 11.11) << endl;
+	cout << useF(Functor(), 11.11) << endl;
+	cout << useF([](double d)->double{return d / 4; }, 11.11) << endl;*/
+
+	//包装函数指针
+	std::function<double(double)> f1 = func;
+	cout << f1(3) << endl;
+	//包装仿函数
+	std::function<double(double)> f2 = Functor();
+	cout << f2(5) << endl;
+	//包装成员函数
+	std::function<double(Plus, double, double)> f3 = &Plus::plus;
+	cout << f3(Plus(), 1.0, 12.0) << endl;
+	//包装lambda表达式
+	auto f4 = [](double x, double y){return x*y; };
+	std::function<double(double, double)> f5 = f4;
+	cout << f5(12.0, 2.0) << endl;
 }
