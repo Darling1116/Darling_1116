@@ -65,6 +65,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="catch.h" />
+    <ClInclude Include="exception.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test.cpp" />
