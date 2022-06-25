@@ -74,4 +74,40 @@ namespace GXR{
 		ap1 = ap2;
 		cout << ap1->_month << endl;
 	}
+
+	template <class T>
+	class unique_ptr{
+	public:
+		unique_ptr(T* ptr = nullptr)
+			:_ptr(ptr){
+			cout << "unique_ptr..." << endl;
+		}
+
+		T& operator*(){
+			return *_ptr;
+		}
+
+		T* operator->(){
+			return _ptr;
+		}
+
+		//禁止拷贝构造和赋值重载的功能
+		unique_ptr(const unique_ptr& up)= delete;
+		unique_ptr& operator=(const unique_ptr& up)= delete;
+
+		~unique_ptr(){
+			_ptr = nullptr;
+			cout << "delete..." << endl;
+		}
+	private:
+		T* _ptr;
+	};
+	
+	void test_unique_ptr(){
+		unique_ptr<Date> ap1(new Date);
+		unique_ptr<Date> ap2(new Date);
+		ap2->_month = 2012;
+		//ap1 = ap2;
+		//unique_ptr<Date> ap3(ap1);
+	}
 }
