@@ -1,6 +1,8 @@
 ﻿#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
 
 void test1(){
 	char str1[] = "hello bit.";
@@ -64,14 +66,104 @@ void test3_1(){
 	//一维数组
 	int a[] = { 1, 2, 3, 4 };
 	printf("%d\n", sizeof(a));
-	printf("%d\n", sizeof(a + 0));
-	printf("%d\n", sizeof(*a));
+	printf("%d\n", sizeof(a + 0));  //首元素的地址
+	printf("%d\n", sizeof(*a));  //首元素的大小
 	printf("%d\n", sizeof(a + 1));
 	printf("%d\n", sizeof(a[1]));
-	printf("%d\n", sizeof(&a));
+	printf("%d\n", sizeof(&a));  //整个数组地址的大小
 	printf("%d\n", sizeof(*&a));
-	printf("%d\n", sizeof(&a + 1));
+	printf("%d\n", sizeof(&a + 1));  //跳过一个数组后的地址
 	printf("%d\n", sizeof(&a[0]));
 	printf("%d\n", sizeof(&a[0] + 1));
 }
 
+
+void test3_2(){
+	//字符数组
+	char arr[] = { 'a', 'b', 'c', 'd', 'e', 'f' };
+	printf("%d\n", sizeof(arr));
+	printf("%d\n", sizeof(arr + 0));
+	printf("%d\n", sizeof(*arr));
+	printf("%d\n", sizeof(arr[1]));
+	printf("%d\n", sizeof(&arr));
+	printf("%d\n", sizeof(&arr + 1));
+	printf("%d\n", sizeof(&arr[0] + 1));
+
+	printf("%d\n", strlen(arr));  //数组的地址，求长度 随机值
+	printf("%d\n", strlen(arr + 0));
+	//printf("%d\n", strlen(*arr));
+	//printf("%d\n", strlen(arr[1]));
+	//printf("%d\n", strlen(&arr));
+
+	//指向数组末尾，还是地址，随机值，和上面差6
+	//printf("%d\n", strlen(&arr + 1));
+
+	printf("%d\n", strlen(&arr[0] + 1));
+}
+
+
+void test3_3(){
+	char arr[] = "abcdef";  //常量字符串，末尾隐藏字符'\0'
+
+	//数组所占内存大小: 6个字符 + 末尾隐藏字符'\0'--> 7
+	printf("%d\n", sizeof(arr));
+	printf("%d\n", sizeof(arr + 0));
+	printf("%d\n", sizeof(*arr));
+	printf("%d\n", sizeof(arr[1]));
+	printf("%d\n", sizeof(&arr));
+	printf("%d\n", sizeof(&arr + 1));
+	printf("%d\n", sizeof(&arr[0] + 1));
+
+	printf("%d\n", strlen(arr));
+	printf("%d\n", strlen(arr + 0));
+	//printf("%d\n", strlen(*arr));
+	//printf("%d\n", strlen(arr[1]));
+	//printf("%d\n", strlen(&arr));
+	//printf("%d\n", strlen(&arr + 1));
+	printf("%d\n", strlen(&arr[0] + 1));
+}
+
+void test3_4(){
+	char *p = "abcdef";
+	printf("%d\n", sizeof(p));
+	printf("%d\n", sizeof(p + 1));
+	printf("%d\n", sizeof(*p));
+	printf("%d\n", sizeof(p[0]));
+	printf("%d\n", sizeof(&p));
+	printf("%d\n", sizeof(&p + 1));
+	printf("%d\n", sizeof(&p[0] + 1));
+
+	printf("%d\n", strlen(p));
+	printf("%d\n", strlen(p + 1));
+	//printf("%d\n", strlen(*p));
+	//printf("%d\n", strlen(p[0]));
+
+	//printf("%d\n", strlen(&p));
+	// &p+1是跳过p之后的地址， 求长度 随机值 
+	//printf("%d\n", strlen(&p + 1));
+
+	printf("%d\n", strlen(&p[0] + 1));
+}
+
+void test3_5(){
+	// 二维数组
+	int a[3][4] = { 0 };
+	printf("%d\n", sizeof(a));
+	printf("%d\n", sizeof(a[0][0]));
+	printf("%d\n", sizeof(a[0]));
+	printf("%d\n", sizeof(a[0] + 1));
+	printf("%d\n", sizeof(*(a[0] + 1)));
+
+	//a+1表示第二个元素的地址，就是第二行数组的地址，求大小 4
+	printf("%d\n", sizeof(a + 1));
+
+	//*(a + 1)取出第二行数组，求大小 16
+	printf("%d\n", sizeof(*(a + 1)));
+
+	printf("%d\n", sizeof(&a[0] + 1));
+	printf("%d\n", sizeof(*(&a[0] + 1)));
+
+	//a为首元素地址，*a取出首元素的内容，即第一行数组，求大小 16
+	printf("%d\n", sizeof(*a));
+	printf("%d\n", sizeof(a[3]));
+}
