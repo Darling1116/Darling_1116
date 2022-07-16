@@ -65,6 +65,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="str_1.h" />
+    <ClInclude Include="str_2.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
