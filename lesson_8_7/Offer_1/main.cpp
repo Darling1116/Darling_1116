@@ -3,8 +3,8 @@
 
 int main(){
 
-	test1_1();
-	test1_2();
+	/*test1_1();
+	test1_2();*/
 	
 	test2_1();
 	system("pause");

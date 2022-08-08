@@ -9,29 +9,44 @@ void test2_1(){
 	int left = 0;
 	int right = len - 1;
 	int mid = 0;  //存放最终的结果
+
 	while (left < right){
-		if (left + 1 == right){
-			mid = arr[right];
-			break;
-		}
-		int mid = (left + right) >> 1;
-		if (arr[left] == arr[mid] && arr[mid] == arr[right]){
-			int result = arr[left];
-			for (int i = left+1; i < right; i++){
-				if (arr[i] < result){
-					result = arr[i];
-				}
-			}
-			mid = result;
-			break;
-		}
-		if (arr[mid] > arr[left]){
-			left = mid;
+		mid = (left + right) >> 1;
+		if (arr[mid] > arr[right]){
+			left = mid + 1;
 		}
 		else if (arr[mid] < arr[right]){
 			right = mid;
 		}
+		else{
+			right--;
+		}
 	}
-	printf("min: %d\n", mid);
+	printf("min: %d\n", arr[left]);
+
+	//while (left < right){
+	//	if (left + 1 == right){
+	//		mid = right;
+	//		break;
+	//	}
+	//	int mid = (left + right) >> 1;
+	//	if (arr[left] == arr[mid] && arr[mid] == arr[right]){
+	//		int result = arr[left];
+	//		for (int i = left+1; i < right; i++){
+	//			if (arr[i] < result){
+	//				result = arr[i];
+	//			}
+	//		}
+	//		printf("min: %d\n", result);
+	//		return;
+	//	}
+	//	if (arr[mid] > arr[left]){
+	//		left = mid;
+	//	}
+	//	else if (arr[mid] < arr[right]){
+	//		right = mid;
+	//	}
+	//}
+	//printf("min: %d\n", arr[mid]);
 
 }
