@@ -1,6 +1,5 @@
 #pragma once
 #define _CRT_SECURE_NO_WARNINGS
-#include <iostream>
 
 //方法三：使用二分查找，时间复杂度O(logN)
 void test2_1(){
