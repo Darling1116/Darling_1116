@@ -21,6 +21,12 @@
     <ClInclude Include="test_2.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="test_3.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="test_4.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
