@@ -4,7 +4,7 @@
 
 int main(){
 
-	//test1_1();
+	test1_1();
 	test2_1();
 
 	system("pause");
