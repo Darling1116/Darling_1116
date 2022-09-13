@@ -1,7 +1,5 @@
-#pragma once
-#include <iostream>
-#include <time.h>
-#include <vector>
+#define _CRT_SECURE_NO_WARNINGS
+#include "common.h"
 
 #ifdef _WIN32
 #include <Windows.h>

@@ -15,24 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ObjectPool.h">
+    <ClInclude Include="test_1.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Thread Cache.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="common.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ConCurrentAlloc.h">
+    <ClInclude Include="test_2.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Thread Cache.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

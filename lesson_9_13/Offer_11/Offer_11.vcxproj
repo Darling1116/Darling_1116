@@ -11,8 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{FD2811B9-892B-429B-A599-37A51B0D6D78}</ProjectGuid>
-    <RootNamespace>ConcurrentMemoryPool</RootNamespace>
+    <ProjectGuid>{A341FED2-F7F7-44B0-954D-6E6851AEE7A8}</ProjectGuid>
+    <RootNamespace>Offer_11</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -64,14 +64,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="common.h" />
-    <ClInclude Include="ConCurrentAlloc.h" />
-    <ClInclude Include="ObjectPool.h" />
-    <ClInclude Include="Thread Cache.h" />
+    <ClInclude Include="test_1.h" />
+    <ClInclude Include="test_2.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Thread Cache.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
