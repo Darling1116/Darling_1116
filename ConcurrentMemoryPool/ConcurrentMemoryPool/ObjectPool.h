@@ -1,3 +1,4 @@
+#pragma once
 #define _CRT_SECURE_NO_WARNINGS
 #include "common.h"
 
@@ -90,7 +91,7 @@ struct TreeNode{
 	}
 };
 
-void test(){
+void test_ObjectPool(){
 	//进行多少轮的操作
 	const size_t Rounds = 3;
 	//每轮申请释放多少次
