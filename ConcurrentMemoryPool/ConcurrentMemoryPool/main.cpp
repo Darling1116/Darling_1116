@@ -5,7 +5,7 @@
 int main(){
 	//test_ObjectPool();
 
-	test_ConCurrentAlloc();
+	//test_ConCurrentAlloc();
 	system("pause");
 	return 0;
 }

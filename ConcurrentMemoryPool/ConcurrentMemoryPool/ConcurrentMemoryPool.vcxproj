@@ -64,12 +64,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Central Cache.h" />
     <ClInclude Include="common.h" />
     <ClInclude Include="ConCurrentAlloc.h" />
     <ClInclude Include="ObjectPool.h" />
     <ClInclude Include="Thread Cache.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Central Cache.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Thread Cache.cpp" />
   </ItemGroup>

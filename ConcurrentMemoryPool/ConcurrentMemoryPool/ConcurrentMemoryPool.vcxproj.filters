@@ -27,12 +27,18 @@
     <ClInclude Include="ConCurrentAlloc.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Central Cache.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Thread Cache.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Central Cache.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
