@@ -11,14 +11,14 @@ using std::cout;
 using std::endl;
 
 //在windows下直接向堆申请以页为单位的大块内存
-inline static void* SystemAlloc(size_t kpage){
-	void* ptr = VirtualAlloc(0, kpage * 8 * 1024, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
-
-	if (ptr == nullptr)
-		throw std::bad_alloc();
-
-	return ptr;
-}
+//inline static void* SystemAlloc(size_t kpage){
+//	void* ptr = VirtualAlloc(0, kpage * 8 * 1024, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
+//
+//	if (ptr == nullptr)
+//		throw std::bad_alloc();
+//
+//	return ptr;
+//}
 
 
 //设计定长内存池：实现对象内存池
