@@ -6,8 +6,11 @@ int main(){
 	//test_ObjectPool();
 
 	//test_TLS();
-	//test_ConCurrentAlloc_1();
-	test_ConCurrentAlloc_2();
+
+	//test_ConCurrentAllocAndFree();
+	//test_ConCurrentAlloc();
+
+	test_MutilThread();
 	system("pause");
 	return 0;
 }
