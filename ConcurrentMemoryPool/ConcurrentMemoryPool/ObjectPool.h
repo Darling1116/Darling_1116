@@ -1,14 +1,6 @@
 #pragma once
-#define _CRT_SECURE_NO_WARNINGS
 #include "common.h"
 
-#ifdef _WIN32
-#include <Windows.h>
-#else
-#endif
-
-using std::cout;
-using std::endl;
 
 //在windows下直接向堆申请以页为单位的大块内存
 //inline static void* SystemAlloc(size_t kpage){
