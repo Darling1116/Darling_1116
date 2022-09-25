@@ -1,5 +1,6 @@
 #include "ObjectPool.h"
 #include "ConCurrentAlloc.h"
+#include "BenchMark.h"
 
 
 int main(){
@@ -10,7 +11,12 @@ int main(){
 	//test_ConCurrentAllocAndFree();
 	//test_ConCurrentAlloc();
 
-	test_MutilThread();
+	//test_MutilThread();
+
+
+	//test_BigAlloc();
+
+	test_Benchmark();
 	system("pause");
 	return 0;
 }

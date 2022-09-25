@@ -64,6 +64,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BenchMark.h" />
     <ClInclude Include="Central Cache.h" />
     <ClInclude Include="common.h" />
     <ClInclude Include="ConCurrentAlloc.h" />
