@@ -70,6 +70,7 @@
     <ClInclude Include="ConCurrentAlloc.h" />
     <ClInclude Include="ObjectPool.h" />
     <ClInclude Include="Page Cache.h" />
+    <ClInclude Include="PageMap.h" />
     <ClInclude Include="Thread Cache.h" />
   </ItemGroup>
   <ItemGroup>
