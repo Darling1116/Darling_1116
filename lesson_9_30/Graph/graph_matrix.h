@@ -207,15 +207,75 @@ public:
 				count++;
 				total += min._w;
 			}
+			//否则的话构成了回路
 		}
 		if (count == n - 1){
 			return total;
 		}
-		else{
+		else{  
 			return -1;
+		}	
+	}
+
+	//实现普里姆算法
+	W Prime(Self& minTree, const V& src){
+		//初始化最小生成树
+		size_t n = _vertex.size();
+
+		minTree._vertex = _vertex;
+		minTree._indexMap = _indexMap;
+		minTree._matrix.resize(n);
+		for (size_t i = 0; i < n; i++){
+			minTree._matrix[i].resize(n, MAX_W);
 		}
-		
-		
+
+		//每次从B集合中挑选合适的顶点到A集合中
+		vector<bool> A(n, false);
+		vector<bool> B(n, true);
+		int srci = getVertexIndex(src);
+		A[srci] = true;
+		B[srci] = false;
+
+		priority_queue<Edge, vector<Edge>, greater<Edge>> pq;
+
+		//把与src相连的边都加入到队列中
+		for (size_t i = 0; i < n; i++){
+			if (_matrix[srci][i] != MAX_W){
+				pq.push(Edge(srci, i, _matrix[srci][i]));
+			}
+		}
+
+		int count = 0;  //记录最小生成树中边的数量
+		W total = W();
+		while (!pq.empty()){
+			Edge min = pq.top();
+			pq.pop();
+
+			if (A[min._dsti]){
+				cout << "产生回路：" << _vertex[min._srci] << "->" << _vertex[min._dsti] << ": " << _matrix[min._srci][min._dsti] << endl;
+			}
+			else{
+				minTree._addEdge(min._srci, min._dsti, min._w);
+				count++;
+				total += min._w;
+				A[min._dsti] = true;
+				B[min._dsti] = false;
+
+				if (count == n - 1){
+					break;
+				}
+				for (size_t i = 0; i < n; i++){
+					if (_matrix[min._dsti][i] != MAX_W && B[i] == true){
+						pq.push(Edge(min._dsti, i, _matrix[min._dsti][i]));
+					}
+				}
+			}
+		}
+		if (count == n - 1){
+			return total;
+		}
+		else
+			return -1;
 	}
 
 
@@ -262,7 +322,36 @@ void test1_2(){
 	g.addEdge('h', 'i', 7);
 	g.print();
 
-	//Graph_matrix<char, int> kminTree;
-	//cout << g.Kruskal(kminTree) << endl;
-	//kminTree.print();
+	Graph_matrix<char, int> kminTree;
+	cout << g.Kruskal(kminTree) << endl;
+	kminTree.print();
+}
+
+
+void test1_3(){
+	const char* str = "abcdefghi";
+	Graph_matrix<char, int, INT_MAX> g(str, strlen(str));
+	g.addEdge('a', 'b', 4);
+	g.addEdge('a', 'h', 8);
+	g.addEdge('b', 'c', 8);
+	g.addEdge('b', 'h', 11);
+	g.addEdge('c', 'i', 2);
+	g.addEdge('c', 'f', 4);
+	g.addEdge('c', 'd', 7);
+	g.addEdge('d', 'f', 14);
+	g.addEdge('d', 'e', 9);
+	g.addEdge('e', 'f', 10);
+	g.addEdge('f', 'g', 2);
+	g.addEdge('g', 'h', 1);
+	g.addEdge('g', 'i', 6);
+	g.addEdge('h', 'i', 7);
+	//g.print();
+
+	Graph_matrix<char, int> kminTree;
+	cout << g.Kruskal(kminTree) << endl;
+	kminTree.print();
+
+	Graph_matrix<char, int> pminTree;
+	cout << g.Prime(pminTree, 'a') << endl;
+	pminTree.print();
 }

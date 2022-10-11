@@ -6,7 +6,8 @@
 
 int main(){
 	//test1_1();
-	test1_2();
+	//test1_2();
+	test1_3();
 
 	//test_3();
 
