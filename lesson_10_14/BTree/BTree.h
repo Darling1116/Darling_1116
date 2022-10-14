@@ -127,7 +127,7 @@ public:
 					brother->_subs[j] = parent->_subs[i];
 					parent->_subs[i] = nullptr;
 					//更新自己和兄弟的_n
-					parent->_n -= j;
+					parent->_n -= (j+1);
 					brother->_n += j;
 
 					//4.连接：往自己的父亲结点中去插入中位数和兄弟孩子
@@ -155,6 +155,22 @@ public:
 	}
 
 
+	//中序遍历
+	void _inorder(Node* root){
+		if (root == nullptr)
+			return;
+		for (size_t i = 0; i < root->_n; i++){
+			_inorder(root->_subs[i]);
+			cout << root->_keys[i] << " ";
+		}
+		_inorder(root->_subs[root->_n]);
+	}
+
+	void inorder(){
+		_inorder(_root);
+		cout << endl;
+	}
+
 
 
 private:
@@ -168,4 +184,7 @@ void test_BTree(){
 	for (auto e : arr){
 		bt.insert(e);
 	}
+	bt.inorder();
+	bt.insert(100);
+	bt.inorder();
 }
