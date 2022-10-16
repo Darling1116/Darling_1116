@@ -100,7 +100,7 @@ public:
 		
 		//若num结点的第0层的前一个结点的下一个结点为空或其值不为num
 		//说明num结点不在跳表中
-		if (prevV[0]->_nextv[0] == nullptr || prevV[0]->_data != num){
+		if (prevV[0]->_nextv[0] == nullptr || prevV[0]->_nextv[0]->_data != num){
 			return false;
 		}
 		//2.删除num结点
